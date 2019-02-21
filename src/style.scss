@@ -15,7 +15,7 @@ $gutter: 10px;
 // html resets
 *{
   box-sizing: border-box;
-  @extend .test-border;
+  //@extend .test-border;
 }
 
 body {
@@ -38,6 +38,16 @@ body {
   }
 }
 
+#categories-open {
+  padding: 25px;
+  font-size: 1.2em;
+  font-weight: bold;
+  background: $color-primary;
+  color: $white;
+  border: none;
+  cursor: pointer;
+}
+
 #categories {
   display: none;
   position: absolute;
@@ -53,6 +63,11 @@ body {
     font-size: 1.2em;
     margin: 0 0 0.5em;
     font-weight: bold;
+
+    &.headline {
+      position: absolute;
+      top: -1.5em;
+    }
   }
 
   .container {
@@ -75,12 +90,13 @@ body {
           padding-right: $gutter;
           //@extend .test-border;
 
-          .btn {
+          [class^="btn"] {
             height: 100%;
             padding: $gutter;
             font-weight: bold;
             background: $white;
             color: $color-primary;
+            cursor: pointer;
             &:hover {
               background: $color-primary;
               color: $white;
