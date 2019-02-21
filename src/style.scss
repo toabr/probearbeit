@@ -1,0 +1,22 @@
+$text:              #fefefe;
+$color-primary:     dodgerblue;
+$color-secondary:   tomato;
+$color-lighter:     rgba(255,255,255,0.2);
+$color-darker:      rgba(0,0,0,0.05);
+
+body {
+  background: $color-darker;
+  margin: 0;
+}
+
+#app {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    padding: 8px 15px;
+    background: white;
+    color: $color-primary;
+  }
+}
