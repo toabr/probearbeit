@@ -17,12 +17,15 @@ document.getElementById('close-btn').addEventListener('click', () => {
 	document.body.classList.toggle('menu-open');
 });
 
+
+
 function buildMenu(data) {
 	//console.log(data);
 	let categoriesMenu = document.getElementById('categories-menu');
 	categoriesMenu.innerHTML = "";
 
 	data.map( (item, index) => {
+		// build menu items
 		let node = document.createElement('div');
 		node.classList.add('item');
 		if(index === 0) {
@@ -33,6 +36,7 @@ function buildMenu(data) {
 		btn.classList.add('btn');
 		btn.innerHTML = item.name; 
 
+		// toggle active
 		btn.addEventListener("mouseover", (evt) => {
 			buildContent(item.name, item.body)
 			let active = categoriesMenu.getElementsByClassName("active");
@@ -44,8 +48,11 @@ function buildMenu(data) {
 		categoriesMenu.appendChild(node);
 	});
 
+	// initial content
 	buildContent(data[0].name, data[0].body);
 }
+
+
 
 function buildContent(headline, content) {
 	let categoriesContent = document.getElementById('categories-content');
@@ -56,6 +63,8 @@ function buildContent(headline, content) {
 		</div>
 	`;
 }
+
+
 
 function getContent(url,callback) {
   fetch(url)
