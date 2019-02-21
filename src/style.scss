@@ -1,11 +1,27 @@
-$text:              #fefefe;
+$white:              #fefefe;
 $color-primary:     dodgerblue;
 $color-secondary:   tomato;
 $color-lighter:     rgba(255,255,255,0.2);
-$color-darker:      rgba(0,0,0,0.05);
+$color-darker:      rgba(0,0,0,0.5);
+
+$btn-height: 60px;
+$btn-width: 120px;
+$gutter: 10px;
+
+.test-border {
+  outline: 1px solid red;
+}
+
+// html resets
+*{
+  box-sizing: border-box;
+  @extend .test-border;
+}
 
 body {
-  background: $color-darker;
+  font-family: ROBOTO, sans-serif;
+  font-size: 14px;
+  background: $white;
   margin: 0;
 }
 
@@ -14,9 +30,102 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+
   h1 {
     padding: 8px 15px;
     background: white;
     color: $color-primary;
+  }
+}
+
+#categories {
+  display: none;
+  position: absolute;
+  top: 0; left: 0;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  background: $color-darker;
+  color: $white;
+
+  h2 {
+    font-size: 1.2em;
+    margin: 0 0 0.5em;
+    font-weight: bold;
+  }
+
+  .container {
+    position: relative;
+    width: 800px;
+    height: 500px;
+    //@extend .test-border;
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: 39% auto;
+      height: 100%;
+
+      .menu {
+        .item {
+          float: left;
+          width: 50%;
+          height: 20%;
+          padding-bottom: $gutter;
+          padding-right: $gutter;
+          //@extend .test-border;
+
+          .btn {
+            height: 100%;
+            padding: $gutter;
+            font-weight: bold;
+            background: $white;
+            color: $color-primary;
+            &:hover {
+              background: $color-primary;
+              color: $white;
+            }
+          }
+        }
+      }
+      .content {
+        height: calc(100% - #{$gutter});
+        padding: 15px;
+        background: $color-primary;
+        color: $white;
+        //@extend .test-border;
+      }
+    }
+  }
+}
+
+.menu-open {
+  #categories {
+    display: flex;
+  }
+}
+
+#close-btn {
+  position: absolute;
+  right: -35px;
+  top: -35px;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+
+  span {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    height: 3px;
+    background: $white;
+    width: 35px;
+    &:first-child {
+      transform: rotate(45deg);
+    }
+    &:last-child {
+      transform: rotate(-45deg);
+    }
   }
 }
