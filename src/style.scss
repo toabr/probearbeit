@@ -82,7 +82,7 @@ body {
       height: 100%;
 
       .menu {
-        .item {
+        [class^="item"] {
           float: left;
           width: 50%;
           height: 20%;
@@ -90,17 +90,18 @@ body {
           padding-right: $gutter;
           //@extend .test-border;
 
-          [class^="btn"] {
+          .btn {
             height: 100%;
             padding: $gutter;
             font-weight: bold;
             background: $white;
             color: $color-primary;
             cursor: pointer;
-            &:hover {
-              background: $color-primary;
-              color: $white;
-            }
+          }
+
+          &.active .btn { 
+            background: $color-primary;
+            color: $white;
           }
         }
       }

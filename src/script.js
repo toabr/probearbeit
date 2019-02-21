@@ -25,13 +25,19 @@ function buildMenu(data) {
 	data.map( (item, index) => {
 		let node = document.createElement('div');
 		node.classList.add('item');
+		if(index === 0) {
+			node.classList.add('active');
+		}
 
 		let btn = document.createElement('div');
-		btn.classList.add('btn-' + index);
+		btn.classList.add('btn');
 		btn.innerHTML = item.name; 
 
 		btn.addEventListener("mouseover", (evt) => {
 			buildContent(item.name, item.body)
+			let active = categoriesMenu.getElementsByClassName("active");
+			active[0].classList.remove('active');
+			node.classList.add('active');
 		});
 
 		node.appendChild(btn);
