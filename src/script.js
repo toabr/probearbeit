@@ -1,5 +1,8 @@
 import "./style.scss";
 
+// dont forget to protect the global scope :)
+(() => {
+
 console.log("### working ###");
 
 
@@ -81,3 +84,8 @@ function getContent(url,callback) {
     console.log('>> api:', err);
   });
 }
+
+
+
+
+})();
